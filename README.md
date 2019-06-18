@@ -24,9 +24,21 @@ To compile it you need Qt and qmake. You also need to compile individually each 
 
 **Dependencies**
 
-~~To compile the software you need to run qmake first. Make sure to install the dependent Qt add-ons such as QtCharts.
-You also need GSL library (GNU Scientific Library). On linux you will probably find built packages in your package manager (e.g. sudo apt install libgslX libgslcblas0 -- X is the version number, remember to update dependencies to the right version/name in .pro file). On windows you need to search for a built GSL package or build it yourself and change the path in the .pro file.~~
-GSL dependency is no longer needed as I have coded an estimator from scratch. It could still come back in the future if more complex features will be added.
+To compile the software you need to run qmake first. Make sure to install the dependent Qt add-ons such as QtCharts.
+GSL dependency is no longer needed as I have coded a regression algorithm from scratch. It could still come back in the future if more complex features will be added.
+
+For linux users, you simply run:
+
+`./buildall.sh`
+
+You'll find the compiled files in the `build` folder.
+Or you can do it the standard way:
+
+`qmake`
+
+`make`
+
+And then copy all the libraries in a folder named `./plugins` relative to the main program directory.
 
 For the expression evaluation to work, you need to have a working python distribution placed in a folder named 'python-3.7.2.amd64', with GTC package installed, placed in the same path as the executable is. Made this choice to make distribution simple, but I plan to add support for a system-wide python distribution in the future *(you may do this yourself if you change a few lines in the code)*
 
