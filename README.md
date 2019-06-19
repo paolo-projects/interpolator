@@ -6,6 +6,8 @@ It is modular, so support for a new file type can be added by including a plugin
 * Import comma separated CSV, semi-colon separated CSV, Peaks text file, SPA file through included plugins
 * Plot loaded data
 * Regression up to 4th order polynomial
+
+  The order of the polynomial virtually has no limit, though I decided to keep it low until I test the speed of the regression algorithm at high order polynomials, since it has to compute very large matrix determinants.
 * Plot interpolated curve vs loaded data
 * Plot residuals
 * Evaluate numerical expression with uncertainty propagation through Python and GTC package.
