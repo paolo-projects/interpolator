@@ -40,7 +40,7 @@ Or you can do it the standard way:
 
 And then copy all the libraries in a folder named `./plugins` relative to the main program directory.
 
-For the expression evaluation to work, you need to have a working python distribution installed globally with GTC package installed ( ~~pip install GTC~~ ) or (included with Windows release) a local python distribution placed in a folder named 'python-3.7.2.amd64', with GTC package installed, placed in the same path as the executable is.
+For the expression evaluation to work, you need to have a working python distribution installed globally with GTC package installed ( `pip install GTC` ) or (included with Windows release) a local python distribution placed in a folder named 'python-3.7.2.amd64', with GTC package installed, placed in the same path as the executable is.
 
 Steps:
 - **$** *qmake*
