@@ -1,14 +1,20 @@
-!/bin/sh
+#!/bin/sh
 qmake
-make
+make $*
 mkdir build
 mkdir build/plugins
-cp ./src/Interpolator/Interpolator ./build/Interpolator
-cp ./src/CsvFilePlugin/libCsvFilePlugin.so ./build/plugins/libCsvFilePlugin.so
-cp ./src/CsvFilePluginSemiColon/libCsvFilePluginSemiColon.so ./build/plugins/libCsvFilePluginSemiColon.so
-cp ./src/PeaksChooser/libPeaksChooser.so ./build/plugins/libPeaksChooser.so
-cp ./src/PeaksTextFilePlugin/libPeaksTextFilePlugin.so ./build/plugins/libPeaksTextFilePlugin.so
-cp ./src/SpaFilePlugin/libSpaFilePlugin.so ./build/plugins/libSpaFilePlugin.so
-cp ./src/TabSeparatedPlugin/libTabSeparatedPlugin.so ./build/plugins/libTabSeparatedPlugin.so
+if [ "$(uname)" == "Darwin" ]; then
+        cp -r ./src/Interpolator/Interpolator.app ./build/
+        LIB_EXT=dylib
+else
+        cp ./src/Interpolator/Interpolator ./build/Interpolator
+        LIB_EXT=so
+fi
+cp ./src/CsvFilePlugin/libCsvFilePlugin.$LIB_EXT ./build/plugins/
+cp ./src/CsvFilePluginSemiColon/libCsvFilePluginSemiColon.$LIB_EXT ./build/plugins/
+cp ./src/PeaksChooser/libPeaksChooser.$LIB_EXT ./build/plugins/
+cp ./src/PeaksTextFilePlugin/libPeaksTextFilePlugin.$LIB_EXT ./build/plugins/
+cp ./src/SpaFilePlugin/libSpaFilePlugin.$LIB_EXT ./build/plugins/
+cp ./src/TabSeparatedPlugin/libTabSeparatedPlugin.$LIB_EXT ./build/plugins/
 
 echo 'Build completed. All built files are in build directory'
